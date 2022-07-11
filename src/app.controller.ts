@@ -19,7 +19,7 @@ export class AppController {
   }
 
   @Post('post')
-  @UseInterceptors(FileInterceptor('62c6f2c07034cb001c892456.pdf'))
+  @UseInterceptors(FileInterceptor('62c6f2c07034cb001c892454.pdf'))
   async postFile(@UploadedFile() file) {
     console.log('Hello');
     console.log(file);
