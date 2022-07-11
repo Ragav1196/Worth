@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Get,
   Post,
@@ -23,5 +24,9 @@ export class AppController {
     console.log('Hello');
     console.log(file);
     return file;
+  }
+  @Post('pdf/download')
+  async userVerification(@Body() responseData: any) {
+    console.log('responseData', responseData);
   }
 }
