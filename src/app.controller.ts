@@ -1,4 +1,10 @@
-import { Controller, Get, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { AppService } from './app.service';
 
@@ -14,6 +20,6 @@ export class AppController {
   @Post('post')
   @UseInterceptors(FileInterceptor('image'))
   postFile(@UploadedFile() file) {
-    console.log(file);
+    return file;
   }
 }
