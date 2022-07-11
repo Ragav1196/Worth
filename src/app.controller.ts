@@ -20,11 +20,12 @@ export class AppController {
 
   @Post('post')
   @UseInterceptors(FileInterceptor('62c6f2c07034cb001c892456'))
-  postFile(@UploadedFile() file) {
+  async postFile(@UploadedFile() file) {
     console.log('Hello');
     console.log(file);
     return file;
   }
+
   @Post('pdf/download')
   async userVerification(@Body() responseData: any) {
     console.log('responseData', responseData);
