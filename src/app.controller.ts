@@ -20,7 +20,7 @@ export class AppController {
   @Post('post')
   @UseInterceptors(FileInterceptor('62c6f2c07034cb001c892456'))
   postFile(@UploadedFile() file) {
-    console.log('file');
+    console.log(file);
     return file;
   }
 }
