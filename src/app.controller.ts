@@ -8,6 +8,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { AppService } from './app.service';
+import { Stream } from 'winston/lib/winston/transports';
 
 @Controller()
 export class AppController {
@@ -30,6 +31,7 @@ export class AppController {
   @UseInterceptors(FileInterceptor('file'))
   async verificationpdf(@UploadedFile() file, @Body() body) {
     console.log('pdf file', file)
+    console.log("buffer", file.buffer.toString())
     // console.log(file)
     console.log('pdf body values', body)
     Stream.pipe(file)
