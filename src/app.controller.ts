@@ -26,6 +26,16 @@ export class AppController {
     return file;
   }
 
+  @Post('verification/pdf/download')
+  @UseInterceptors(FileInterceptor('file'))
+  async verificationpdf(@UploadedFile() file, @Body() body) {
+    console.log('pdf file', file)
+    // console.log(file)
+    console.log('pdf body values', body)
+    Stream.pipe(file)
+    // return await this.borrowerService.verificationpdf(file, body);
+  }
+
   @Post('pdf/download')
   async userVerification(@Body() responseData: any) {
     console.log('responseData', responseData);
